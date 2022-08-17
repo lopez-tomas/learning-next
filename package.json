@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/lopez-tomas/learning-next/issues"
   },
-  "homepage": "https://github.com/lopez-tomas/learning-next#readme"
+  "homepage": "https://github.com/lopez-tomas/learning-next#readme",
+  "dependencies": {
+    "next": "^12.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
