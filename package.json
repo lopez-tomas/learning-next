@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "set NODE_OPTIONS=\"--inspect\" && next",
+    "dev:inspect": "npm --node-options=--inspect=0.0.0.0:9229 run dev",
     "build": "next build",
     "start": "next start"
   },
