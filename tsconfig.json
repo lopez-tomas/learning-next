@@ -3,8 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "@database": ["database/db.ts"],
-      "@/components/*": ["components/*"],
-      "@/pages/*": ["pages/*"]
+      "@components/*": ["components/*"],
+      "@pages/*": ["pages/*"]
     },
     "target": "es6",
     "lib": [
