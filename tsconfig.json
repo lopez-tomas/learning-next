@@ -4,7 +4,8 @@
     "paths": {
       "@database": ["database/db.ts"],
       "@components/*": ["components/*"],
-      "@pages/*": ["pages/*"]
+      "@pages/*": ["pages/*"],
+      "@styles/*": ["styles/*"],
     },
     "target": "es6",
     "lib": [
