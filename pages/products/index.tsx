@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+//import React from 'react';
 import ProductsList from '@/components/Products/ProductsList';
 
 const Products = () => {
