@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '@components/Navbar/Navbar';
+import styles from './Layout.module.sass';
 
 interface Props {
   children: React.ReactNode;
@@ -7,12 +8,20 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <div>
+    <div className='Layout'>
       <Navbar />
       {children}
-      <footer>
+      <footer className={`${styles['Layout-footer']} ${styles['Layout-color']}`}>
         This is the footer
       </footer>
+
+      {/* CSS in JS */}
+      <style jsx>{`
+        .Layout {
+          background-color: #f5f5f5;
+        }
+      `}
+      </style>
     </div>
   )
 }
