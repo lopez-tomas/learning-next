@@ -1,9 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
+import styles from './Navbar.module.sass';
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav className={styles.Navbar}>
       <menu>
         <Link href="/">
           <a>Home</a>
