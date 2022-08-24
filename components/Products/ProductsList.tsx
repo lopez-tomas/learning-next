@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import ProductItem from './ProductItem';
+import Link from 'next/link';
 
 const ProductsList = () => {
   const [products, setProducts] = useState<TProduct[]>([]);
@@ -15,7 +15,11 @@ const ProductsList = () => {
   return (
     <ul className="ProductsList">
       {products.map(product => (
-        <ProductItem key={product.id} data={product} />
+        <li key={product.id}>
+          <Link href={`/products/${encodeURIComponent(product.id)}`}>
+            {product.name}
+          </Link>
+        </li>
       ))}
     </ul>
   )
