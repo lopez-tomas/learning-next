@@ -1,4 +1,3 @@
-import Navbar from '../components/Navbar/Navbar';
 import Products from './products';
 
 const Home = () => {

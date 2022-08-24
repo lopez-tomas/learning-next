@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import ProductItem from '@/components/Products/ProductItem';
+import ProductItem from '@components/Products/ProductItem';
 
 const Product = () => {
   const [product, setProduct] = useState<TProduct>();
