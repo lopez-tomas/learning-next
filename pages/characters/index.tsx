@@ -1,10 +1,10 @@
 //import React from 'react';
-import ProductsList from '@components/Products/ProductsList';
+import CharacterList from '@components/Characters/CharacterList';
 
 const Products = () => {
   return (
     <div className='Products'>
-      <ProductsList />
+      <CharacterList />
     </div>
   )
 }
