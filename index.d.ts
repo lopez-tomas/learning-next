@@ -33,3 +33,33 @@ type TAPIAvoResponse = {
   data: TProduct[];
   error?: string
 }
+
+type Page = Url | null;
+
+type TInfo = {
+  count: number;
+  pages: number;
+  next: Page;
+  prev: Page;
+}
+
+type TCharacter = {
+  id: number;
+  name: string;
+  status: string;
+  species: string;
+  type: string;
+  gender: string;
+  origin: {
+    name: string,
+    url: Url
+  };
+  location: {
+    name: string,
+    url: Url
+  };
+  image: Url;
+  episode: Array<string>;
+  url: Url;
+  created: string;
+}
