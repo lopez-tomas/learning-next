@@ -5,7 +5,7 @@ export default async function useGetAllCharactersId() {
   let characters = Array.from({length: data.info.count}, (v, k) => {
     return {
       params: {
-        productId: `${++k}`
+        characterId: `${++k}`
       },
     };
   });
