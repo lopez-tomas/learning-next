@@ -9,7 +9,7 @@ export default function Document() {
         {/* external styles */}
         {/* external scripts/js */}
       </Head>
-      <body className="my-body-class">
+      <body className="App">
         <Main />
         <NextScript />
       </body>
