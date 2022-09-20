@@ -17,17 +17,17 @@ const Pagination = ({ prev, next, onPrev, onNext }: Props) => {
   }
 
   return (
-    <nav>
+    <nav className="Pagination">
       <ul>
         {
           prev &&
-          <li>
+          <li className="Pagination-prev">
             <button onClick={handlePrev}>Previous</button>
           </li>
         }
         {
           next &&
-          <li>
+          <li className="Pagination-next">
             <button onClick={handleNext}>Next</button>
           </li>
         }
