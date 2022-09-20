@@ -1,49 +1,47 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import useGetAllCharacters from '@hooks/useGetAllCharacters';
-import Router from 'next/router';
+
 import Pagination from '@components/Pagination/Pagination';
 import CharacterItem from './CharacterItem';
 
-const getPageNumber = (url: Url): number => {
-  return Number(url?.split('?page=')[1]);
+interface Props {
+  info: TInfo;
+  characters: TCharacter[];
 }
 
-const CharacterList = () => {
+const CharacterList: React.FC<Props> = ({ info, characters }) => {
   const [page, setPage] = useState(1);
-  const [characters, setCharacters] = useState<TCharacter[]>([]);
-  const [info, setInfo] = useState<TInfo | any>({});
-  const url = `https://rickandmortyapi.com/api/character/?page=${page}`;
+  const [prev, setPrev] = useState<Page>(info.prev);
+  const [next, setNext] = useState<Page>(info.next);
+  const [currentCharacters, setCurrentCharacters] = useState<TCharacter[]>(characters);
 
-  const fetchCharacters = async (url: string, page: number = 1) => {
-    const data = await useGetAllCharacters(url);
-    setCharacters(data.results);
-    setInfo(data.info);
+  const fetchCharacters = async (url: Page, page: number = 1) => {
+    const data = await useGetAllCharacters(url as string);
+    setCurrentCharacters(data.results);
+    setPrev(data.info.prev);
+    setNext(data.info.next);
     setPage(page);
-    Router.push(`/characters?page=${page}`);
   }
 
   const onPrev = () => {
-    fetchCharacters(info.prev, getPageNumber(info.prev));
+    fetchCharacters(prev, page - 1);
   }
 
   const onNext = () => {
-    fetchCharacters(info.next, getPageNumber(info.next));
+    fetchCharacters(next, page + 1);
+    window.scrollTo(0,0);
   }
 
-  useEffect(() => {
-    fetchCharacters(url);
-  }, []);
-
   return (
-    <div>
-      <Pagination prev={info.prev} next={info.next} onPrev={onPrev} onNext={onNext} />
-      <div className='ProductsList'>
-        {characters.map(character => (
+    <>
+      <Pagination prev={prev} next={next} onPrev={onPrev} onNext={onNext} />
+      <div className='CharacterList'>
+        {currentCharacters.map(character => (
           <CharacterItem key={character.id} data={character} />
-        ))}
+          ))}
       </div>
-      <Pagination prev={info.prev} next={info.next} onPrev={onPrev} onNext={onNext} />
-    </div>
+      <Pagination prev={prev} next={next} onPrev={onPrev} onNext={onNext} />
+    </>
   )
 }
 
