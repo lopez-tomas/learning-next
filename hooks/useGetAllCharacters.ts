@@ -1,6 +1,6 @@
-const API = 'https://rickandmortyapi.com/api/character';
+const URL = process.env.API_URL;
 
-export default async function useGetAllCharacters(url = API) {
+export default async function useGetAllCharacters(url = URL) {
   const response = await fetch(`${url}`);
   const data = await response.json();
 
