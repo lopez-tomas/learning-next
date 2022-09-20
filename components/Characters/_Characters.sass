@@ -1,8 +1,85 @@
-.ProductsList
-  display: grid
-  grid-template-columns: 1fr 1fr
+.Characters
+  .CharacterList
+    display: grid
+    grid-template-columns: 600px 600px
+    justify-content: center
+    gap: 2rem
 
-  .ProductItem
-    justify-self: center
-    &-link
-      cursor: pointer
+    .CharacterItem
+      display: flex
+      justify-self: start
+      min-width: 600px
+      font-family: sans-serif
+      color: white
+      background-color: #353535
+      border-radius: 15px
+
+      &-image
+        height: 230px
+        width: 220px
+        padding: 0.1rem
+        border-top-left-radius: 15px
+        border-bottom-left-radius: 15px
+
+      &-data
+        width: 100%
+        height: auto
+        padding: 1rem
+
+        &--title
+          margin-bottom: 0.5rem
+          // cursor: pointer
+
+          &:hover
+            color: rgba(255, 152, 0, 1)
+
+        &--status
+          span
+            display: inline-block
+            margin: 0 auto
+            height: 8px
+            width: 8px
+            border-radius: 50%
+            margin: 2px 8px 2px 2px
+
+        &--extra
+          margin-top: 1rem
+          div:first-child
+            margin-bottom: 1rem
+
+            span
+              font-weight: bold
+              color: grey
+
+            p
+              margin-top: .5rem
+            &:hover
+              color: rgba(255, 152, 0, 1)
+
+@media (max-width: 1280px)
+  .Characters
+    .CharacterList
+      grid-template-columns: 1fr
+      //justify-self: center
+      .CharacterItem
+        max-width: 600px
+        justify-self: center
+
+@media (max-width: 660px)
+  .Characters
+    .CharacterList
+      .CharacterItem
+        flex-direction: column
+        justify-self: center
+        min-width: 260px
+
+        &-image
+          width: 100%
+          height: 60%
+          border-top-right-radius: 15px
+          border-bottom-left-radius: 0
+
+        &-data
+          &--title,
+          &--status
+            text-align: center
