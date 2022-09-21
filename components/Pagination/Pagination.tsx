@@ -1,5 +1,4 @@
 //import React from 'react'
-
 interface Props {
   prev: Page;
   next: Page;
@@ -19,18 +18,12 @@ const Pagination = ({ prev, next, onPrev, onNext }: Props) => {
   return (
     <nav className="Pagination">
       <ul>
-        {
-          prev &&
-          <li className="Pagination-prev">
-            <button onClick={handlePrev}>Previous</button>
-          </li>
-        }
-        {
-          next &&
-          <li className="Pagination-next">
-            <button onClick={handleNext}>Next</button>
-          </li>
-        }
+        <li className="Pagination-prev">
+          <button className={`${!prev ? 'disabled' : ''}`} onClick={handlePrev} disabled={!prev ? true : false}>Previous</button>
+        </li>
+        <li className="Pagination-next">
+          <button className={`${!next ? 'disabled' : ''}`} onClick={handleNext} disabled={!next ? true : false}>Next</button>
+        </li>
       </ul>
     </nav>
   )
