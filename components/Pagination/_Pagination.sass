@@ -1,0 +1,36 @@
+@use '../../styles/colors'
+
+.Pagination
+  ul
+    display: flex
+    flex-direction: row
+    justify-content: center
+    padding: 1rem 0
+    list-style: none
+
+    .Pagination-prev
+      margin-right: 1rem
+    .Pagination-next
+      margin-left: 1rem
+
+    .Pagination-prev button, .Pagination-next button
+      height: 50px
+      width: 80px
+      border-radius: .5rem
+      border: none
+      font-size: 1rem
+      color: colors.$white
+      background-color: colors.$primary-color
+      cursor: pointer
+
+      &:hover, &:hover
+        color: colors.$primary-color
+        background-color: colors.$main-hover-color
+        border: 1px solid colors.$primary-color
+
+      &.disabled, &.disabled
+        color: colors.$primary-color
+        background-color: #ccc
+        border: 1px solid colors.$primary-color
+        cursor: not-allowed
+
