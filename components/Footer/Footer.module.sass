@@ -1,2 +1,25 @@
+@use '../../styles/_colors' as colors
+
 .Footer
-  background-color: red
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  height: 25vh
+  font-weight: bold
+  font-family: sans-serif
+  color: colors.$main-background-color
+  background-color: colors.$main-hover-color
+
+  &-author
+    padding: 1rem 0
+    &--link
+      color: colors.$main-background-color
+      text-decoration: none
+      &:hover
+        color: colors.$primary-color
+        text-decoration: underline
+
+  &-links
+    a:first-child
+      margin-right: 1rem
