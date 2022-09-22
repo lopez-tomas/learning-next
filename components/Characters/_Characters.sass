@@ -1,3 +1,5 @@
+@use '../../styles/_colors'
+
 .Characters
   .CharacterList
     display: grid
@@ -11,7 +13,7 @@
       min-width: 600px
       font-family: sans-serif
       color: white
-      background-color: #353535
+      background-color: colors.$primary-color
       border-radius: 15px
 
       &-image
@@ -24,14 +26,13 @@
       &-data
         width: 100%
         height: auto
-        padding: 1rem
+        padding: 1rem 1rem 0 1rem
 
         &--title
           margin-bottom: 0.5rem
-          // cursor: pointer
 
           &:hover
-            color: rgba(255, 152, 0, 1)
+            color: colors.$main-hover-color
 
         &--status
           span
@@ -44,23 +45,25 @@
 
         &--extra
           margin-top: 1rem
+
           div:first-child
             margin-bottom: 1rem
 
+          div
             span
               font-weight: bold
               color: grey
-
             p
               margin-top: .5rem
-            &:hover
-              color: rgba(255, 152, 0, 1)
+
+            .CharacterItem-data--origin, .CharacterItem-data--location
+              &:hover, &:hover
+                color: colors.$main-hover-color
 
 @media (max-width: 1280px)
   .Characters
     .CharacterList
       grid-template-columns: 1fr
-      //justify-self: center
       .CharacterItem
         max-width: 600px
         justify-self: center

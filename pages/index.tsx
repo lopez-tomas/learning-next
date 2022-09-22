@@ -9,7 +9,6 @@ interface Props {
 const Home: React.FC<Props> = ({ info, characters }) => {
   return (
     <main className='Home'>
-      <h1 className='Home-title'>HOME</h1>
       <div className='Characters'>
         <CharacterList info={info} characters={characters} />
       </div>

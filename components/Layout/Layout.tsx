@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '@components/Navbar/Navbar';
+// import Navbar from '@components/Navbar/Navbar';
 import Footer from '@components/Footer/Footer';
 import styles from './Layout.module.sass';
 
@@ -10,7 +10,7 @@ interface Props {
 const Layout: React.FC<Props> = ({ children }) => {
   return (
     <div className={styles.Layout}>
-      <Navbar />
+      {/* <Navbar /> */}
       { children }
       <Footer />
 
