@@ -1,24 +1,26 @@
-@use '../../styles/_colors'
+@use '../../styles/_colors' as colors
+
+$character-size: 600px
 
 .Characters
+  background-color: colors.$main-background-color
   .CharacterList
     display: grid
-    grid-template-columns: 600px 600px
+    grid-template-columns: $character-size $character-size
     justify-content: center
     gap: 2rem
 
     .CharacterItem
       display: flex
       justify-self: start
-      min-width: 600px
+      width: $character-size
       font-family: sans-serif
       color: white
       background-color: colors.$primary-color
       border-radius: 15px
 
       &-image
-        height: 230px
-        width: 220px
+        width: 100%
         padding: 0.1rem
         border-top-left-radius: 15px
         border-bottom-left-radius: 15px
@@ -26,7 +28,7 @@
       &-data
         width: 100%
         height: auto
-        padding: 1rem 1rem 0 1rem
+        padding: 1rem
 
         &--title
           margin-bottom: 0.5rem
@@ -65,24 +67,28 @@
     .CharacterList
       grid-template-columns: 1fr
       .CharacterItem
-        max-width: 600px
+        // min-width: 600px
         justify-self: center
 
 @media (max-width: 660px)
   .Characters
     .CharacterList
+      // grid-template-columns: 600px
+      // gap: 1rem
+
       .CharacterItem
         flex-direction: column
         justify-self: center
-        min-width: 260px
+        width: 400px
 
         &-image
           width: 100%
-          height: 60%
+          height: 65%
           border-top-right-radius: 15px
           border-bottom-left-radius: 0
 
         &-data
+          height: 35%
           &--title,
           &--status
             text-align: center
