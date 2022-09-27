@@ -6,8 +6,6 @@ interface Props {
 }
 
 export function Search({ search, setSearch }: Props) {
-  console.log(search)
-
   return (
     <div className='Search'>
       <label className='Search--label' htmlFor='search' />
