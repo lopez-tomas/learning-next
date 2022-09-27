@@ -1,4 +1,4 @@
-const URL = process.env.API_URL;
+const URL = process.env.API_URL_EPISODE;
 
 export default async function useGetAllEpisodes(url = URL, filter = '') {
   const response = await fetch(`${url}/${filter}`);
