@@ -63,3 +63,13 @@ type TCharacter = {
   url: Url;
   created: string;
 }
+
+type TEpisode = {
+  id: number;
+  name: string;
+  characters: TCharacter[];
+  episode: string;
+  url: Url;
+  air_date: string;
+  created: string;
+}
