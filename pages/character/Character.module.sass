@@ -1,0 +1,99 @@
+@use '../../styles/_colors' as colors
+
+$border-radius: 8px
+
+.Character
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  min-height: 75vh
+
+  .Info
+    display: grid
+    grid-template-columns: 1fr 1fr
+    margin: 25px 0
+
+    &__left, &__right
+      display: flex
+      justify-content: center
+
+    &__left
+      padding: 1rem
+      padding-top: 0
+      color: colors.$white
+      background-color: colors.$primary-color
+      border-radius: $border-radius + 6px
+      flex-direction: column
+
+      &--name
+        padding: 1rem 0
+        text-align: center
+      &--img
+        width: 100%
+        border-radius: $border-radius
+
+    &__right
+      flex-direction: column
+
+  .Episodes
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 100%
+    background-color: colors.$main-background-color
+
+    &__title
+      margin-top: 25px
+      font-size: 2rem
+      color: colors.$white
+      letter-spacing: $border-radius - 2px
+
+    &__table
+      min-width: 600px
+      border-collapse: collapse
+      margin: 25px 0
+      font-size: 0.9rem
+      border-radius: $border-radius $border-radius 0 0
+      overflow: hidden
+      box-shadow: 0 0 20px rgba(255, 152, 0, 0.15)
+
+      thead tr
+        text-align: left
+        font-weight: bold
+        color: colors.$main-background-color
+        background-color: colors.$main-hover-color
+        letter-spacing: 2px
+
+      & tbody tr
+        color: colors.$white
+        border-bottom: 1px solid colors.$extra-color
+
+      & tbody tr:nth-of-type(even)
+        background-color: colors.$primary-color
+
+      & tbody tr:last-of-type
+        border-bottom: 2px solid colors.$main-hover-color
+
+      & tbody tr:hover
+        color: colors.$main-hover-color
+        font-weight: bold
+
+      & th, & td
+        padding: 12px 15px
+
+      // thead
+      &--episode-th
+        text-align: center
+      &--date-th
+        text-align: right
+
+      // tbody
+      &--episode-td
+        text-align: center
+      &--name-td
+        padding: 0 1rem
+      &--date-td
+        text-align: right
+
