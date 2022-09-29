@@ -8,23 +8,29 @@ $border-radius: 8px
   justify-content: center
   align-items: center
   min-height: 75vh
+  background-color: colors.$primary-color
 
   .Info
     display: grid
+    max-width: 600px
+    width: 80%
     grid-template-columns: 1fr 1fr
     margin: 25px 0
 
     &__left, &__right
       display: flex
       justify-content: center
-
-    &__left
+      flex-direction: column
       padding: 1rem
       padding-top: 0
+      overflow: hidden
+      box-shadow: 0 0 20px rgba(255, 152, 0, 0.40)
+
+    &__left
       color: colors.$white
-      background-color: colors.$primary-color
-      border-radius: $border-radius + 6px
-      flex-direction: column
+      background-color: colors.$main-background-color
+      border-top-left-radius: $border-radius
+      border-bottom-left-radius: $border-radius
 
       &--name
         padding: 1rem 0
@@ -34,9 +40,15 @@ $border-radius: 8px
         border-radius: $border-radius
 
     &__right
-      flex-direction: column
+      border: 2px solid colors.$main-background-color
+      background-color: colors.$main-hover-color
+      border-top-right-radius: $border-radius
+      border-bottom-right-radius: $border-radius
 
-      &--status
+      &--status, &--origin, &--gender, &--species
+        font-size: 1.2rem
+
+      &--status span
         display: inline-block
         height: 10px
         width: 10px
@@ -48,6 +60,7 @@ $border-radius: 8px
     flex-direction: column
     justify-content: center
     align-items: center
+    height: 100%
     width: 100%
     background-color: colors.$main-background-color
 
@@ -58,7 +71,8 @@ $border-radius: 8px
       letter-spacing: $border-radius - 2px
 
     &__table
-      min-width: 600px
+      width: 80%
+      max-width: 600px
       border-collapse: collapse
       margin: 25px 0
       font-size: 0.9rem
@@ -104,3 +118,27 @@ $border-radius: 8px
       &--date-td
         text-align: right
 
+@media screen and (max-width: 530px)
+  .Character
+    .Info
+      height: 60%
+      grid-template-columns: 1fr
+
+      &__left
+        align-items: center
+        &--img
+          max-width: 320px
+          max-height: 320px
+    .Episodes
+      &__table
+        font-size: 0.82rem
+
+@media screen and (max-width: 400px)
+  .Character
+    .Episodes
+      &__table
+        font-size: 0.75rem
+
+        thead tr th.Episodes__table--date-th,
+        tbody tr td.Episodes__table--date-td
+          display: none

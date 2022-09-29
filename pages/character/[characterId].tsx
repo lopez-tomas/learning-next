@@ -5,8 +5,6 @@ import useGetAllEpisodes from '@hooks/useGetAllEpisodes';
 
 import { statusColor } from 'utils';
 
-import styles from './Character.module.sass';
-
 interface Props {
   character: TCharacter;
   episodes: TEpisode[];
@@ -18,38 +16,38 @@ const Character = ({ character, episodes }: Props) => {
   }
 
   return (
-    <main className={styles.Character}>
-      <div className={styles['Info']}>
-        <div className={styles['Info__left']}>
-          <h2 className={styles['Info__left--name']}>{character.name}</h2>
-          <img className={styles['Info__left--img']} src={character.image} />
+    <main className='Character'>
+      <div className='Info'>
+        <div className='Info__left'>
+          <h2 className='Info__left--name'>{character.name}</h2>
+          <img className='Info__left--img' src={character.image} />
         </div>
 
-        <div className={styles['Info__right']}>
-          <p><span className={styles['Info__right--status']}></span>Status: {character.status}</p>
-          {character.origin.name}<br/>
-          {character.gender}<br/>
-          {character.species} {character.type ? ` - ${character.type}` : ''}<br/>
+        <div className='Info__right'>
+          <p className='Info__right--status'><span></span>Status: {character.status}</p>
+          <p className='Info__right--origin'>Origin: {character.origin.name}</p>
+          <p className='Info__right--gender'>Gender: {character.gender}</p>
+          <p className='Info__right--species'>Species: {character.species} {character.type ? ` - ${character.type}` : ''}</p>
         </div>
       </div>
 
-      <div className={styles['Episodes']}>
-        <h3 className={styles['Episodes__title']}>Episodes</h3>
+      <div className='Episodes'>
+        <h3 className='Episodes__title'>Episodes</h3>
 
-        <table className={styles['Episodes__table']}>
+        <table className='Episodes__table'>
           <thead>
             <tr>
-              <th className={styles['Episodes__table--episode-th']}>Episode</th>
-              <th className={styles['Episodes__table--name-th']}>Name</th>
-              <th className={styles['Episodes__table--date-th']}>Air date</th>
+              <th className='Episodes__table--episode-th'>Episode</th>
+              <th className='Episodes__table--name-th'>Name</th>
+              <th className='Episodes__table--date-th'>Air date</th>
             </tr>
           </thead>
           <tbody>
             {(episodes).map((episode) => (
-              <tr key={episode.id}>
-                <td className={styles['Episodes__table--episode-td']}>{episode.episode}</td>
-                <td className={styles['Episodes__table--name-td']}>{episode.name}</td>
-                <td className={styles['Episodes__table--date-td']}>{episode.air_date}</td>
+              <tr key={`episode-${episode.id}`}>
+                <td className='Episodes__table--episode-td'>{episode.episode}</td>
+                <td className='Episodes__table--name-td'>{episode.name}</td>
+                <td className='Episodes__table--date-td'>{episode.air_date}</td>
               </tr>
             ))}
           </tbody>
@@ -57,13 +55,8 @@ const Character = ({ character, episodes }: Props) => {
       </div>
 
       <style jsx>{`
-        .Info__right--status {
-          display: inline-block;
-          height: 10px;
-          width: 10px;
-          margin: 0 .5rem;
+        p.Info__right--status span {
           background-color: ${statusColor(character.status)};
-          border-radius: 50%;
         }
       `}</style>
     </main>
