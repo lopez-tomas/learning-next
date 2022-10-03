@@ -35,15 +35,18 @@ const Character = ({ character, episodes }: Props) => {
           </div>
 
           <div className='Info__right'>
-            <p className='Info__right--status'><span></span>Status: {character.status}</p>
-            <p className='Info__right--origin'>Origin: {character.origin.name}</p>
-            <p className='Info__right--gender'>Gender: {character.gender}</p>
-            <p className='Info__right--species'>Species: {character.species} {character.type ? ` - ${character.type}` : ''}</p>
+            <div>
+              <p className='Info__right--status'><span></span>Status: {character.status}</p>
+              <p className='Info__right--origin'>Origin: {character.origin.name}</p>
+              <p className='Info__right--gender'>Gender: {character.gender}</p>
+              <p className='Info__right--species'>Species: {character.species} {character.type ? ` - ${character.type}` : ''}</p>
+            </div>
           </div>
         </div>
 
         <div className='Episodes'>
           <h3 className='Episodes__title'>Episodes</h3>
+          <h4 className='Episodes__appearances'>{episodes.length} Appearances</h4>
 
           <table className='Episodes__table'>
             <thead>
@@ -98,6 +101,7 @@ export async function getStaticProps({ params }: StaticProps) {
 
   const query: string = episodes.join();
   const episodesInfo = await useGetAllEpisodes(undefined, `/[${query}]`);
+  console.log(episodesInfo);
 
   return {
     props: {

@@ -40,13 +40,22 @@ $border-radius: 8px
         border-radius: $border-radius
 
     &__right
-      border: 2px solid colors.$main-background-color
       background-color: colors.$main-hover-color
       border-top-right-radius: $border-radius
       border-bottom-right-radius: $border-radius
+      padding: 0.6rem
 
-      &--status, &--origin, &--gender, &--species
+      div
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        height: 100%
         font-size: 1.2rem
+        line-height: 3rem
+        color: colors.$white
+        background-color: colors.$main-background-color
+        border-radius: $border-radius
 
       &--status span
         display: inline-block
@@ -64,11 +73,16 @@ $border-radius: 8px
     width: 100%
     background-color: colors.$main-background-color
 
-    &__title
+    &__title, &__appearances
       margin-top: 25px
       font-size: 2rem
       color: colors.$white
       letter-spacing: $border-radius - 2px
+
+    &__appearances
+      margin-top: 8px
+      font-size: 1.2rem
+      color: colors.$main-hover-color
 
     &__table
       width: 80%
@@ -118,6 +132,12 @@ $border-radius: 8px
       &--date-td
         text-align: right
 
+@media screen and (max-width: 600px)
+  .Character
+    .Info
+      &__left, &__right div
+        font-size: 0.90rem
+
 @media screen and (max-width: 530px)
   .Character
     .Info
@@ -129,6 +149,7 @@ $border-radius: 8px
         &--img
           max-width: 320px
           max-height: 320px
+
     .Episodes
       &__table
         font-size: 0.82rem
@@ -137,8 +158,6 @@ $border-radius: 8px
   .Character
     .Episodes
       &__table
-        font-size: 0.75rem
-
         thead tr th.Episodes__table--date-th,
         tbody tr td.Episodes__table--date-td
           display: none
