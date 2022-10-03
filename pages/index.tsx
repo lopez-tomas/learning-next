@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+import Head from 'next/head';
 import useGetAllCharacters from '@hooks/useGetAllCharacters';
 
 import Pagination from '@components/Pagination/Pagination';
@@ -44,26 +45,31 @@ const Home: React.FC<Props> = ({ info, characters }) => {
   }, [search]);
 
   return (
-    <main className='Home'>
-      <Search search={search} setSearch={setSearch} />
+    <>
+      <Head>
+        <title>NextJS - Rick and Morty API</title>
+      </Head>
+      <main className='Home'>
+        <Search search={search} setSearch={setSearch} />
 
-      {!error &&
-        <div className='Characters'>
-          <Pagination prev={previous} next={next} onPrev={onPrev} onNext={onNext} />
-          <div className='CharacterList'>
-            {currentCharacters.map(character => (
-              <CharacterItem key={character.id} data={character} />
-              ))}
+        {!error &&
+          <div className='Characters'>
+            <Pagination prev={previous} next={next} onPrev={onPrev} onNext={onNext} />
+            <div className='CharacterList'>
+              {currentCharacters.map(character => (
+                <CharacterItem key={character.id} data={character} />
+                ))}
+            </div>
+            <Pagination prev={previous} next={next} onPrev={onPrev} onNext={onNext} />
           </div>
-          <Pagination prev={previous} next={next} onPrev={onPrev} onNext={onNext} />
-        </div>
-      }
-      {error &&
-        <div className='Error'>
-          <h1 className='Characters--error'>No characters found :(</h1>
-        </div>
-      }
-    </main>
+        }
+        {error &&
+          <div className='Error'>
+            <h1 className='Characters--error'>No characters found :(</h1>
+          </div>
+        }
+      </main>
+    </>
   )
 }
 

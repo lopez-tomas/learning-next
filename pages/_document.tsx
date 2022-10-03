@@ -4,6 +4,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        <title>NextJS - Rick and Morty API</title>
         {/* favicon */}
         {/* webfont */}
         {/* external styles */}

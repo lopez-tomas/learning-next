@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
 import useGetAllCharactersId from '@hooks/useGetAllCharactersId';
 import useGetCharacter from '@hooks/useGetCharacter';
 import useGetAllEpisodes from '@hooks/useGetAllEpisodes';
@@ -16,50 +18,60 @@ const Character = ({ character, episodes }: Props) => {
   }
 
   return (
-    <main className='Character'>
-      <div className='Info'>
-        <div className='Info__left'>
-          <h2 className='Info__left--name'>{character.name}</h2>
-          <img className='Info__left--img' src={character.image} />
+    <>
+      <Head>
+        <title>NextJS - {character.name}</title>
+      </Head>
+
+      <main className='Character'>
+        <Link href="/">
+          <button>Go back to Home</button>
+        </Link>
+
+        <div className='Info'>
+          <div className='Info__left'>
+            <h2 className='Info__left--name'>{character.name}</h2>
+            <img className='Info__left--img' src={character.image} />
+          </div>
+
+          <div className='Info__right'>
+            <p className='Info__right--status'><span></span>Status: {character.status}</p>
+            <p className='Info__right--origin'>Origin: {character.origin.name}</p>
+            <p className='Info__right--gender'>Gender: {character.gender}</p>
+            <p className='Info__right--species'>Species: {character.species} {character.type ? ` - ${character.type}` : ''}</p>
+          </div>
         </div>
 
-        <div className='Info__right'>
-          <p className='Info__right--status'><span></span>Status: {character.status}</p>
-          <p className='Info__right--origin'>Origin: {character.origin.name}</p>
-          <p className='Info__right--gender'>Gender: {character.gender}</p>
-          <p className='Info__right--species'>Species: {character.species} {character.type ? ` - ${character.type}` : ''}</p>
-        </div>
-      </div>
+        <div className='Episodes'>
+          <h3 className='Episodes__title'>Episodes</h3>
 
-      <div className='Episodes'>
-        <h3 className='Episodes__title'>Episodes</h3>
-
-        <table className='Episodes__table'>
-          <thead>
-            <tr>
-              <th className='Episodes__table--episode-th'>Episode</th>
-              <th className='Episodes__table--name-th'>Name</th>
-              <th className='Episodes__table--date-th'>Air date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {(episodes).map((episode) => (
-              <tr key={`episode-${episode.id}`}>
-                <td className='Episodes__table--episode-td'>{episode.episode}</td>
-                <td className='Episodes__table--name-td'>{episode.name}</td>
-                <td className='Episodes__table--date-td'>{episode.air_date}</td>
+          <table className='Episodes__table'>
+            <thead>
+              <tr>
+                <th className='Episodes__table--episode-th'>Episode</th>
+                <th className='Episodes__table--name-th'>Name</th>
+                <th className='Episodes__table--date-th'>Air date</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {(episodes).map((episode) => (
+                <tr key={`episode-${episode.id}`}>
+                  <td className='Episodes__table--episode-td'>{episode.episode}</td>
+                  <td className='Episodes__table--name-td'>{episode.name}</td>
+                  <td className='Episodes__table--date-td'>{episode.air_date}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
-      <style jsx>{`
-        p.Info__right--status span {
-          background-color: ${statusColor(character.status)};
-        }
-      `}</style>
-    </main>
+        <style jsx>{`
+          p.Info__right--status span {
+            background-color: ${statusColor(character.status)};
+          }
+        `}</style>
+      </main>
+    </>
   )
 }
 
