@@ -25,7 +25,7 @@ const Character = ({ character, episodes }: Props) => {
 
       <main className='Character'>
         <Link href="/">
-          <button>Go back to Home</button>
+          <button className='Character__btn'>Go back to Home</button>
         </Link>
 
         <div className='Info'>
